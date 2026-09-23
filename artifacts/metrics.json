@@ -1,0 +1,486 @@
+{
+  "dataset": {
+    "rows": 7043,
+    "positive_class": "Churn=Yes",
+    "churn_rate": 0.2653698707936959,
+    "source": "IBM telco-customer-churn-on-icp4d sample"
+  },
+  "split": {
+    "test_size": 0.2,
+    "stratified": true,
+    "random_state": 42,
+    "n_train": 5634,
+    "n_test": 1409,
+    "train_churn_rate": 0.2653532126375577,
+    "test_churn_rate": 0.2654364797728886
+  },
+  "cv": {
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 42
+  },
+  "imbalance": {
+    "logistic_regression": "class_weight=balanced",
+    "random_forest": "class_weight=balanced_subsample",
+    "xgboost": "scale_pos_weight=2.768562 from training labels only"
+  },
+  "selection": {
+    "rule": "Highest ROC-AUC on concatenated out-of-fold training predictions. Ties break on out-of-fold F1 at threshold 0.50.",
+    "threshold_rule": "F1-maximizing threshold on out-of-fold training scores, applied unchanged to the test set."
+  },
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  },
+  "models": {
+    "logistic_regression": {
+      "display_name": "Logistic regression",
+      "f1_threshold": 0.6,
+      "oof_roc_auc_folds": [
+        0.847063,
+        0.825152,
+        0.841165,
+        0.861731,
+        0.852544
+      ],
+      "oof_roc_auc_std": 0.013678,
+      "oof_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.749734,
+        "precision": 0.518422,
+        "recall": 0.8,
+        "f1": 0.629143,
+        "roc_auc": 0.844992,
+        "average_precision": 0.654411,
+        "predicted_positive_rate": 0.409478,
+        "tn": 3028,
+        "fp": 1111,
+        "fn": 299,
+        "tp": 1196
+      },
+      "oof_at_f1_threshold": {
+        "threshold": 0.6,
+        "accuracy": 0.783635,
+        "precision": 0.573561,
+        "recall": 0.719732,
+        "f1": 0.638386,
+        "roc_auc": 0.844992,
+        "average_precision": 0.654411,
+        "predicted_positive_rate": 0.332978,
+        "tn": 3339,
+        "fp": 800,
+        "fn": 419,
+        "tp": 1076
+      },
+      "test_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.738112,
+        "precision": 0.504303,
+        "recall": 0.783422,
+        "f1": 0.613613,
+        "roc_auc": 0.841623,
+        "average_precision": 0.632311,
+        "predicted_positive_rate": 0.412349,
+        "tn": 747,
+        "fp": 288,
+        "fn": 81,
+        "tp": 293
+      },
+      "test_at_f1_threshold": {
+        "threshold": 0.6,
+        "accuracy": 0.762243,
+        "precision": 0.539877,
+        "recall": 0.705882,
+        "f1": 0.611819,
+        "roc_auc": 0.841623,
+        "average_precision": 0.632311,
+        "predicted_positive_rate": 0.347055,
+        "tn": 810,
+        "fp": 225,
+        "fn": 110,
+        "tp": 264
+      }
+    },
+    "random_forest": {
+      "display_name": "Random forest",
+      "f1_threshold": 0.55,
+      "oof_roc_auc_folds": [
+        0.842422,
+        0.832402,
+        0.845536,
+        0.854953,
+        0.858323
+      ],
+      "oof_roc_auc_std": 0.010335,
+      "oof_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.769613,
+        "precision": 0.549078,
+        "recall": 0.737124,
+        "f1": 0.629355,
+        "roc_auc": 0.845984,
+        "average_precision": 0.657002,
+        "predicted_positive_rate": 0.35623,
+        "tn": 3234,
+        "fp": 905,
+        "fn": 393,
+        "tp": 1102
+      },
+      "oof_at_f1_threshold": {
+        "threshold": 0.55,
+        "accuracy": 0.78612,
+        "precision": 0.581278,
+        "recall": 0.693645,
+        "f1": 0.63251,
+        "roc_auc": 0.845984,
+        "average_precision": 0.657002,
+        "predicted_positive_rate": 0.316649,
+        "tn": 3392,
+        "fp": 747,
+        "fn": 458,
+        "tp": 1037
+      },
+      "test_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.763662,
+        "precision": 0.539499,
+        "recall": 0.748663,
+        "f1": 0.6271,
+        "roc_auc": 0.840701,
+        "average_precision": 0.648361,
+        "predicted_positive_rate": 0.368346,
+        "tn": 796,
+        "fp": 239,
+        "fn": 94,
+        "tp": 280
+      },
+      "test_at_f1_threshold": {
+        "threshold": 0.55,
+        "accuracy": 0.771469,
+        "precision": 0.556277,
+        "recall": 0.687166,
+        "f1": 0.614833,
+        "roc_auc": 0.840701,
+        "average_precision": 0.648361,
+        "predicted_positive_rate": 0.327892,
+        "tn": 830,
+        "fp": 205,
+        "fn": 117,
+        "tp": 257
+      }
+    },
+    "xgboost": {
+      "display_name": "XGBoost",
+      "f1_threshold": 0.56,
+      "oof_roc_auc_folds": [
+        0.840216,
+        0.829763,
+        0.843538,
+        0.860279,
+        0.854367
+      ],
+      "oof_roc_auc_std": 0.012004,
+      "oof_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.751686,
+        "precision": 0.521183,
+        "recall": 0.789967,
+        "f1": 0.628024,
+        "roc_auc": 0.844942,
+        "average_precision": 0.659992,
+        "predicted_positive_rate": 0.402201,
+        "tn": 3054,
+        "fp": 1085,
+        "fn": 314,
+        "tp": 1181
+      },
+      "oof_at_f1_threshold": {
+        "threshold": 0.56,
+        "accuracy": 0.77263,
+        "precision": 0.553661,
+        "recall": 0.738462,
+        "f1": 0.632846,
+        "roc_auc": 0.844942,
+        "average_precision": 0.659992,
+        "predicted_positive_rate": 0.353923,
+        "tn": 3249,
+        "fp": 890,
+        "fn": 391,
+        "tp": 1104
+      },
+      "test_at_0_5": {
+        "threshold": 0.5,
+        "accuracy": 0.748758,
+        "precision": 0.517544,
+        "recall": 0.78877,
+        "f1": 0.625,
+        "roc_auc": 0.84395,
+        "average_precision": 0.66154,
+        "predicted_positive_rate": 0.404542,
+        "tn": 760,
+        "fp": 275,
+        "fn": 79,
+        "tp": 295
+      },
+      "test_at_f1_threshold": {
+        "threshold": 0.56,
+        "accuracy": 0.765082,
+        "precision": 0.542074,
+        "recall": 0.740642,
+        "f1": 0.625989,
+        "roc_auc": 0.84395,
+        "average_precision": 0.66154,
+        "predicted_positive_rate": 0.362669,
+        "tn": 801,
+        "fp": 234,
+        "fn": 97,
+        "tp": 277
+      }
+    }
+  },
+  "best_model": "random_forest",
+  "baseline_test": {
+    "threshold": 0.5,
+    "accuracy": 0.734564,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.5,
+    "average_precision": 0.265436,
+    "predicted_positive_rate": 0.0,
+    "tn": 1035,
+    "fp": 0,
+    "fn": 374,
+    "tp": 0,
+    "note": "Constant score for the majority class (no churn)."
+  },
+  "outreach_scenario": {
+    "assumptions": {
+      "offer_fraction_of_monthly_charge": 0.2,
+      "months_retained_if_saved": 3,
+      "save_rates": [
+        0.3,
+        1.0
+      ],
+      "value_is": "gross monthly charges, not margin"
+    },
+    "by_save_rate": {
+      "0.30": {
+        "contact_none": {
+          "customers_contacted": 0,
+          "churners_caught": 0,
+          "offer_spend": 0.0,
+          "assumed_retained_revenue": 0.0,
+          "net_value": 0.0
+        },
+        "contact_model_score": {
+          "customers_contacted": 462,
+          "churners_caught": 257,
+          "offer_spend": 6951.36,
+          "assumed_retained_revenue": 17446.36,
+          "net_value": 10495.0
+        },
+        "contact_everyone": {
+          "customers_contacted": 1409,
+          "churners_caught": 374,
+          "offer_spend": 18060.24,
+          "assumed_retained_revenue": 24493.41,
+          "net_value": 6433.17
+        }
+      },
+      "1.00": {
+        "contact_none": {
+          "customers_contacted": 0,
+          "churners_caught": 0,
+          "offer_spend": 0.0,
+          "assumed_retained_revenue": 0.0,
+          "net_value": 0.0
+        },
+        "contact_model_score": {
+          "customers_contacted": 462,
+          "churners_caught": 257,
+          "offer_spend": 6951.36,
+          "assumed_retained_revenue": 58154.55,
+          "net_value": 51203.19
+        },
+        "contact_everyone": {
+          "customers_contacted": 1409,
+          "churners_caught": 374,
+          "offer_spend": 18060.24,
+          "assumed_retained_revenue": 81644.7,
+          "net_value": 63584.46
+        }
+      }
+    }
+  },
+  "top_features": [
+    {
+      "feature": "Contract = Month-to-month",
+      "value": 0.137353614840878,
+      "kind": "importance",
+      "abs_value": 0.137353614840878
+    },
+    {
+      "feature": "tenure",
+      "value": 0.11421546235873901,
+      "kind": "importance",
+      "abs_value": 0.11421546235873901
+    },
+    {
+      "feature": "TotalCharges",
+      "value": 0.0930877778155465,
+      "kind": "importance",
+      "abs_value": 0.0930877778155465
+    },
+    {
+      "feature": "OnlineSecurity = No",
+      "value": 0.0625550062634207,
+      "kind": "importance",
+      "abs_value": 0.0625550062634207
+    },
+    {
+      "feature": "avg_monthly_spend",
+      "value": 0.058596916530988016,
+      "kind": "importance",
+      "abs_value": 0.058596916530988016
+    },
+    {
+      "feature": "MonthlyCharges",
+      "value": 0.056884499989877865,
+      "kind": "importance",
+      "abs_value": 0.056884499989877865
+    },
+    {
+      "feature": "Contract = Two year",
+      "value": 0.05457769246928731,
+      "kind": "importance",
+      "abs_value": 0.05457769246928731
+    },
+    {
+      "feature": "TechSupport = No",
+      "value": 0.04609602293875304,
+      "kind": "importance",
+      "abs_value": 0.04609602293875304
+    },
+    {
+      "feature": "InternetService = Fiber optic",
+      "value": 0.042591060789221785,
+      "kind": "importance",
+      "abs_value": 0.042591060789221785
+    },
+    {
+      "feature": "PaymentMethod = Electronic check",
+      "value": 0.03339230269327303,
+      "kind": "importance",
+      "abs_value": 0.03339230269327303
+    },
+    {
+      "feature": "Contract = One year",
+      "value": 0.021098480394720603,
+      "kind": "importance",
+      "abs_value": 0.021098480394720603
+    },
+    {
+      "feature": "OnlineBackup = No",
+      "value": 0.01789247841785121,
+      "kind": "importance",
+      "abs_value": 0.01789247841785121
+    },
+    {
+      "feature": "addon_count",
+      "value": 0.016866749975432443,
+      "kind": "importance",
+      "abs_value": 0.016866749975432443
+    },
+    {
+      "feature": "InternetService = DSL",
+      "value": 0.015836274344401,
+      "kind": "importance",
+      "abs_value": 0.015836274344401
+    },
+    {
+      "feature": "TechSupport = Yes",
+      "value": 0.013713105828157766,
+      "kind": "importance",
+      "abs_value": 0.013713105828157766
+    }
+  ],
+  "logistic_top_coefficients": [
+    {
+      "feature": "tenure",
+      "value": -1.1540724380866723,
+      "kind": "coefficient",
+      "abs_value": 1.1540724380866723
+    },
+    {
+      "feature": "Contract = Two year",
+      "value": -0.7737049255492177,
+      "kind": "coefficient",
+      "abs_value": 0.7737049255492177
+    },
+    {
+      "feature": "MonthlyCharges",
+      "value": -0.7461146985754905,
+      "kind": "coefficient",
+      "abs_value": 0.7461146985754905
+    },
+    {
+      "feature": "InternetService = Fiber optic",
+      "value": 0.7224040507057387,
+      "kind": "coefficient",
+      "abs_value": 0.7224040507057387
+    },
+    {
+      "feature": "InternetService = DSL",
+      "value": -0.659247093489684,
+      "kind": "coefficient",
+      "abs_value": 0.659247093489684
+    },
+    {
+      "feature": "Contract = Month-to-month",
+      "value": 0.6574326649803298,
+      "kind": "coefficient",
+      "abs_value": 0.6574326649803298
+    },
+    {
+      "feature": "TotalCharges",
+      "value": 0.4875176856691314,
+      "kind": "coefficient",
+      "abs_value": 0.4875176856691314
+    },
+    {
+      "feature": "PaperlessBilling = No",
+      "value": -0.2618876492738633,
+      "kind": "coefficient",
+      "abs_value": 0.2618876492738633
+    },
+    {
+      "feature": "InternetService = No",
+      "value": -0.25096468576908865,
+      "kind": "coefficient",
+      "abs_value": 0.25096468576908865
+    },
+    {
+      "feature": "DeviceProtection = No internet service",
+      "value": -0.25096468576908865,
+      "kind": "coefficient",
+      "abs_value": 0.25096468576908865
+    },
+    {
+      "feature": "OnlineSecurity = No internet service",
+      "value": -0.25096468576908865,
+      "kind": "coefficient",
+      "abs_value": 0.25096468576908865
+    },
+    {
+      "feature": "StreamingMovies = No internet service",
+      "value": -0.25096468576908865,
+      "kind": "coefficient",
+      "abs_value": 0.25096468576908865
+    }
+  ]
+}
