@@ -112,6 +112,18 @@ Exploratory charts and the contract, tenure, internet, and payment cuts are in [
 
 The CSV is downloaded by the training script and is not committed. This repository’s code is MIT.
 
+## Stack and cost
+
+Reproduction stays free. Libraries are open source and the dataset is a public sample. Nothing in this repository calls a paid API, a paid cloud service, or a commercial dataset.
+
+| Piece | Role | License |
+| --- | --- | --- |
+| NumPy, pandas, scikit-learn, Matplotlib, joblib | Tables, models, metrics, plots, saved pipeline | BSD |
+| XGBoost | Gradient boosting | Apache License 2.0 |
+| Telco Customer Churn CSV | Public IBM sample hosted on GitHub | Apache License 2.0 (host repository) |
+
+The only network call is that CSV download, via `urllib` in `src/churn/data.py`. Training and the exploratory report run locally after `pip install -r requirements.txt`.
+
 ## How to run
 
 ```bash

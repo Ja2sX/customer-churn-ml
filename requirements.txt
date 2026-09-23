@@ -1,3 +1,4 @@
+# Free, open-source stack only. No paid APIs, cloud SDKs, or commercial datasets.
 numpy==2.5.3
 pandas==3.0.6
 scikit-learn==1.9.1

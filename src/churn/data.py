@@ -1,4 +1,8 @@
-"""Download and load the IBM Telco Customer Churn sample."""
+"""Download and load the IBM Telco Customer Churn sample.
+
+The only network call in this project is an unauthenticated HTTPS GET of that
+public CSV. No API key, account, or paid dataset service is required.
+"""
 
 import hashlib
 import urllib.request

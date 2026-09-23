@@ -1,6 +1,6 @@
 # Data
 
-`Telco-Customer-Churn.csv` is not stored in git. `scripts/train.py` and `scripts/eda.py` download it on first use and check the SHA-256 digest.
+`Telco-Customer-Churn.csv` is not stored in git. `scripts/train.py` and `scripts/eda.py` download it on first use and check the SHA-256 digest. The file is a free public sample. The download is an unauthenticated HTTPS GET, with no account and no API key.
 
 | | |
 | --- | --- |

@@ -10,6 +10,7 @@ ARTIFACTS_DIR = PROJECT_ROOT / "artifacts"
 REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
+# Public IBM sample on GitHub. Unauthenticated download; no paid dataset.
 DATA_URL = (
     "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/"
     "master/data/Telco-Customer-Churn.csv"
